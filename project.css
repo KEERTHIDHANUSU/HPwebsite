@@ -1,0 +1,237 @@
+body {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-size: 21px;
+  font-weight: bolder;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial;
+  height: 3000px;
+}
+
+h1{
+  text-align: center;
+  color: rgb(50, 47, 231);
+  text-decoration:underline;
+}
+
+.head{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: -45px;
+}
+
+.petrol,
+.diesel,.previous-hc,.present-hc {
+  border: solid;
+  border-color: black;
+  margin-top:80px;
+  border-radius: 78px;
+  background-color: rgba(243, 241, 241, 0.966);
+}
+  
+.input-readings{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.st-reading-div,.cl-reading-div,.test-div,.liter-div,.amt-div{
+  padding-bottom: 15px;
+  margin-left: 30px;
+  margin-right: 35px;
+}
+.liter-div{
+  padding-bottom: 34px;
+  padding-top: 9px;
+}
+
+.end_ms,.start_ms,
+.end_hsd,.start_hsd{
+  margin-left: 30px;
+}
+
+
+.liters_ms,.liters_hsd{
+  margin-left:160px;
+}
+
+.testing_hsd,.testing_ms{
+  margin-left: 112px;
+}
+.expected_hsd,.expected_ms{
+  margin-left: 120px;
+  
+}
+
+.bt_ms,.bt_hsd,.hc-bt,.full-hc-bt{
+  padding:12px 15px 12px 15px;
+  border: solid;
+  border-color: whitesmoke;
+  background-color: cadetblue;
+  color: whitesmoke;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  
+}
+.bt_hsd_div,.bt_ms_div,.hc-bt-div,.hc-full-bt-div{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.bt_ms:hover,.bt_hsd:hover,.hc-bt:hover,.full-hc-bt:hover{
+  background-color:whitesmoke ;
+  color: cadetblue;
+  border: solid;
+  border-width: 1px;
+}
+.bt_ms:active,.bt_hsd:active,.hc-bt:active,.full-hc-bt:active{
+  box-shadow: 3px 6px 2px gray;
+}
+.ms-details,.hsd-details{
+  margin-left: 37px;
+}
+input[type="number"] {
+  border-radius: 5px;
+  border-width: 3px;
+  background-color: transparent;
+  width: 120px;
+  padding: 10px 0px 10px 0px;
+  color:rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 16px;
+  
+}
+input {
+  border-radius: 5px;
+  border-width: 3px;
+  background-color: transparent;
+  padding: 10px 0px 10px 0px;
+  color:rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 16px;
+  text-align: center;
+  
+}
+
+input:hover {
+  box-shadow: 8px 8px 5px rgb(133, 130, 130);
+  background-color: white;
+}
+button:hover {
+  cursor: pointer;
+}
+.topic_hsd {
+  
+  color: blue;
+}
+.topic_ms{
+  color: green;
+}
+.topic_hsd,.topic_ms{
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+
+}
+.tot-amt-bt,.tot-hc-bt{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: solid;
+  padding:20px 65px 20px 30px;
+  font-size: 22px;
+  font-weight: bolder;
+  color: rgb(6, 85, 255);
+  border-color: rgb(241, 12, 12);
+  background-color: beige;
+  
+  margin-top: -35px;
+}
+.tot-amt-div,.tot-hc-div,.full-tot{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.handcash-div{
+  border-radius: 78px;
+}
+.handcash-topic{
+  display: flex;
+  justify-content: center;
+  margin-top: -10px;
+  margin-bottom: -60px;
+  text-decoration: underline;
+}
+
+.full-hc-div{
+  display: flex;
+  justify-content: space-around;
+}
+.present-hc,.previous-hc{
+  border: solid;
+  border-radius: black;
+
+}
+.previous-hc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 380px;
+  width: 400px;
+
+}
+
+.previous-hc input{
+  width: 180px;
+}
+.present-hc input,.oil-rate input{
+  width: 50px;
+  height: 10px;
+}
+.present-hc{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 380px;
+  width: 400px;
+}
+.hc-bt,.full-hc-bt{
+  font-size: 23px;
+  padding: 12px 27px 12px 27px;
+}
+.hc-pp-amt{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid;
+  border-color: rgba(134, 133, 133, 0.753);
+  padding: 12px 0px 12px 0px ;
+  border-radius: 72px;
+  margin: -20px 400px 30px 440px;
+
+}
+.tot-hc-div{
+  margin-top: 60px;
+}
+.oil-full{
+  display: flex;
+  justify-content: center;
+}
+.oil-div{
+  border: solid;
+  border-color: rgb(160, 158, 158);
+  padding:18px 12px 18px 12px;
+  border-radius: 30px;
+}
+.full-tot-bt{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: solid;
+  padding:20px 65px 20px 30px;
+  font-size: 22px;
+  font-weight: bolder;
+  color:darkred;
+  background-color:rgb(255, 255, 255);
+  margin-top: -25px;
+}

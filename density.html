@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Density Correction Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #4a90e2;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #357ab8;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Density Calculation</h2>
+
+    <div class="form-group">
+      <label for="fuelType">Fuel Type</label>
+      <select id="fuelType">
+        <option value="">Select</option>
+        <option value="MS">MS (Petrol)</option>
+        <option value="HSD">HSD (Diesel)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hydroDensity">Hydrometer Density (kg/m³)</label>
+      <input id="hydroDensity" type="number" placeholder="e.g., 730.5">
+    </div>
+
+    <div class="form-group">
+      <label for="temperature">Temperature (°C)</label>
+      <input id="temperature" type="number" placeholder="e.g., 28">
+    </div>
+
+    <button onclick="calculateDensity()">SUBMIT</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateDensity() {
+      const fuel = document.getElementById("fuelType").value;
+      const hydro = parseFloat(document.getElementById("hydroDensity").value);
+      const temp = parseFloat(document.getElementById("temperature").value);
+      const result = document.getElementById("result");
+
+      if (!fuel || isNaN(hydro) || isNaN(temp)) {
+        result.innerText = "⚠️ Please fill all fields correctly.";
+        result.style.color = "#e74c3c";
+        return;
+      }
+
+      let correctionFactor = 0;
+      if (fuel === "MS") {
+        correctionFactor = (15 - temp) * 0.65;
+      } else if (fuel === "HSD") {
+        correctionFactor = (15 - temp) * 0.7;
+      }
+
+      const correctedDensity = hydro + correctionFactor;
+      result.innerText = `Fuel Density = ${correctedDensity.toFixed(2)} kg/m³`;
+      result.style.color = "#27ae60";
+    }
+  </script>
+
+</body>
+</html>

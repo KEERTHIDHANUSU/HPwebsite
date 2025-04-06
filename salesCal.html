@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>example</title>
+  </head>
+  <body>
+    <link rel="stylesheet" href="project.css" />
+   <!-- <h1>DEVIKA AGENCY</h1>-->
+    <div class="head">
+      <div>
+        <label>Name:</label>
+        <input type="text" />
+      </div>
+      <div>
+        <label for="">Date:</label>
+        <input type="date" />
+      </div>
+      <div>
+        <label for="">In time:</label>
+        <input type="time" />
+      </div>
+      <div>
+        <label for="">Out time:</label>
+        <input type="time" />
+      </div>
+    </div>
+    <div class="input-readings">
+    <div class="petrol">
+      <p class="topic_ms">MS</p>
+      <div class="ms-details">
+        <div class="st-reading-div">
+          <span class="st-reading">Starting Reading.</span>
+          <input class="start_ms" type="number" />
+        </div>
+        <div class="cl-reading-div">
+          <span class="cl-reading">Closing Reading  .</span>
+          <input class="end_ms" type="number" />
+        </div>
+        <div class="test-div">
+          <span class="test">Testing .</span>
+          <input class="testing_ms" type="number" />
+        </div>
+        <div class="liter-div">
+          <span class="liter">Liters .</span>
+          <span class="liters_ms"></span>
+        </div>
+        <div class="amt-div">
+          <span class="amt">Amount .</span>
+          <span class="expected_ms"></span>
+        </div>
+        
+      </div>
+      <div class="bt_ms_div">
+        <button
+          class="bt_ms"
+          onclick="
+            calMS();
+            totAmt();
+            "
+        >
+          Calculate
+        </button>
+      </div>
+    </div>
+    <div class="diesel">
+      <p class="topic_hsd">HSD</p> 
+      <div class="hsd-details">
+      <div class="st-reading-div">
+        <span class=>Starting Reading.</span>
+        <input class="start_hsd" type="number" />
+      </div>
+      <div class="cl-reading-div">
+        <span>Closing Reading .</span>
+        <input class="end_hsd" type="number" />
+      </div>
+      <div class="test-div" >
+        <span >Testing .</span>
+        <input class="testing_hsd" type="number" />
+      </div>
+      <div class="liter-div" >
+        <span>Liters .</span>
+        <span class="liters_hsd"></span>
+      </div>
+      <div class="amt-div">
+        <span class="" >Amount .</span>
+        <span class="expected_hsd"></span>
+      </div>
+    </div>
+    <div class="bt_hsd_div">
+      <button
+      class="bt_hsd"
+        onclick="
+            calHSD();
+            totAmt();
+            "
+      >
+        Calculate
+      </button>
+    </div>
+    </div>
+  </div>
+    <!--
+      <div>
+        <p>Oil:</p>
+        <input class="oil" type="text" placeholder="In 'ml'" />
+        <button
+          onclick="
+                oilPriceExp();
+                "
+        >
+          Enter
+        </button>
+        <p>Oil Price:</p>
+        <p class="oil_Price"></p>
+        <p>Expected Price + Oil:</p>
+                <p class="oilExpPrice"></p>
+      </div>
+-->
+      <div class="tot-amt-div">
+        <button class="tot-amt-bt">
+      <span class="tot-amt">Total Amount :</span>
+      <span class="expected_price"></span>
+    </button>
+      </div>
+    
+    <div class="handcash-div">
+      <h2 class="handcash-topic">CASH</h2>
+      <div class="full-hc-div">
+      <div class="previous-hc">
+      <input class="handcash1" type="number" placeholder="1" />
+      <input class="handcash2" type="number" placeholder="2" />
+      <input class="handcash3" type="number" placeholder="3" />
+      <input class="handcash4" type="number" placeholder="4" />
+    </div>
+    <div class="present-hc">
+      <div>
+      <span>500₹ X</span>
+      <input class="handcash_500" type="number" />
+      <span class="hc_500"></span>
+    </div>
+    <div>
+      <span>200₹ X</span>
+      <input class="handcash_200" type="number" />
+      <span class="hc_200"></span>
+    </div>
+    <div>
+      <span>100₹ X</span>
+      <input class="handcash_100" type="number" />
+      <span class="hc_100"></span>
+    </div>
+    <div>
+      <span>50₹ X</span>
+      <input class="handcash_50" type="number" />
+      <span class="hc_50"></span>
+    </div>
+    <div>
+      <span>20₹ X</span>
+      <input class="handcash_20" type="number" />
+      <span class="hc_20"></span>
+    </div>
+    <div>
+      <span>10₹ X</span>
+      <input class="handcash_10" type="number" />
+      <span class="hc_10"></span>
+    </div>
+    <div>
+      <span>Coins:</span>
+      <input class="handcash_coins" type="number" />
+      <span class="hc_coins"></span>
+    </div>
+    </div>
+  </div>
+  <div class="hc-bt-div">
+      <button class="hc-bt"
+        onclick="
+      handCash();
+      "
+      >
+        Calculate
+      </button>
+    </div>
+    </div>
+    <div class="hc-pp-amt">
+    <div class="tot-hc-amt">
+      <span>Total Amount :</span>
+      <span class="Tot_Handcash"></span>
+    </div>
+    <div class="pp-amt">
+      <span>Phonepe: </span>
+      <input class="phonepe" type="number" />
+    </div>
+  </div>
+  <div class="hc-full-bt-div">
+  <button class="full-hc-bt"
+  onclick="
+      totActualCash();
+      final();
+      "
+>
+  Calculate
+</button>
+</div>
+    <div class="tot-hc-div">
+      <button class="tot-hc-bt">
+      <span>Total (HC+PP):</span>
+      <span class="totactualprice"></span>
+      </button>
+      </div>
+      <div class="oil-full">
+      <div class="oil-div">
+        <div class="oil-rate">
+      <span>Oil:</span>
+      <input class="oil_actual" type="number" placeholder="₹" />
+      <button
+        onclick="
+            oilPriceAct();
+            "
+      >
+        Enter
+      </button>
+    </div>
+      <span>Oil Price :</span>
+      <span class="oilPriceact"></span>
+    </div>
+  </div>
+  <div class="full-tot">
+    <span class="full-tot-bt">
+      <span>Total:</span>
+      <span class="Finalvalue"></span>
+    </span>
+  </div>
+    <script>
+      let hsdPrice = 0;
+      let msPrice = 0;
+
+      function calMS() {
+        const startMS = document.querySelector(".start_ms");
+        let startms = Number(startMS.value);
+        const endMS = document.querySelector(".end_ms");
+        let endms = Number(endMS.value);
+        const add = endms - startms;
+        const mstest = document.querySelector(".testing_ms");
+        let msTestValue = Number(mstest.value);
+        const totMSliter = add - msTestValue;
+        document.querySelector(".liters_ms").innerHTML = `${totMSliter}`;
+
+        msPrice = (totMSliter * 96.25);
+        document.querySelector(".expected_ms").innerHTML = `₹${msPrice}`;
+      }
+
+      let expected = 0;
+      function calHSD() {
+        const startHSD = document.querySelector(".start_hsd");
+        let starthsd = Number(startHSD.value);
+        const endHSD = document.querySelector(".end_hsd");
+        let endhsd = Number(endHSD.value);
+        const add2 = endhsd - starthsd;
+        const hsdtest = document.querySelector(".testing_hsd");
+        let hsdTestValue = Number(hsdtest.value);
+        const totHSDliter = add2 - hsdTestValue;
+        document.querySelector(".liters_hsd").innerHTML = `${totHSDliter}`;
+
+        hsdPrice = (totHSDliter * 86.47);
+        document.querySelector(".expected_hsd").innerHTML = `₹${hsdPrice}`;
+      }
+      function totAmt(){
+        expected = hsdPrice + msPrice;
+        document.querySelector(".expected_price").innerHTML = `₹${expected}`;
+      }
+
+      let totHandCash = 0;
+      let actualPrice = 0;
+      function totActualCash() {
+        const phonePe = document.querySelector(".phonepe");
+        let phonepe = Number(phonePe.value);
+        actualPrice = totHandCash + phonepe;
+        document.querySelector(".totactualprice").innerHTML = `₹${actualPrice}`;
+      }
+
+      function handCash() {
+        const handCash1 = document.querySelector(".handcash1");
+        let handcash1 = Number(handCash1.value);
+        console.log(handcash1);
+        const handCash2 = document.querySelector(".handcash2");
+        let handcash2 = Number(handCash2.value);
+        console.log(handcash2);
+        const handCash3 = document.querySelector(".handcash3");
+        let handcash3 = Number(handCash3.value);
+        console.log(handcash3);
+        const handCash4 = document.querySelector(".handcash4");
+        let handcash4 = Number(handCash4.value);
+        console.log(handcash4);
+        const handCash500 = document.querySelector(".handcash_500");
+        let handcash500 = Number(handCash500.value) * 500;
+        document.querySelector(".hc_500").innerHTML = `=₹${handcash500}`;
+        const handCash200 = document.querySelector(".handcash_200");
+        let handcash200 = Number(handCash200.value) * 200;
+        document.querySelector(".hc_200").innerHTML = `=₹${handcash200}`;
+        const handCash100 = document.querySelector(".handcash_100");
+        let handcash100 = Number(handCash100.value) * 100;
+        document.querySelector(".hc_100").innerHTML = `=₹${handcash100}`;
+        const handCash50 = document.querySelector(".handcash_50");
+        let handcash50 = Number(handCash50.value) * 50;
+        document.querySelector(".hc_50").innerHTML = `=₹${handcash50}`;
+        const handCash20 = document.querySelector(".handcash_20");
+        let handcash20 = Number(handCash20.value) * 20;
+        document.querySelector(".hc_20").innerHTML = `=₹${handcash20}`;
+        const handCash10 = document.querySelector(".handcash_10");
+        let handcash10 = Number(handCash10.value) * 10;
+        document.querySelector(".hc_10").innerHTML = `=₹${handcash10}`;
+        const handCashCoins = document.querySelector(".handcash_coins");
+        let handcashCoins = Number(handCashCoins.value);
+        document.querySelector(".hc_coins").innerHTML = `=₹${handcashCoins}`;
+        totHandCash =
+          handcash1 +
+          handcash2 +
+          handcash3 +
+          handcash4 +
+          handcash500 +
+          handcash200 +
+          handcash100 +
+          handcash50 +
+          handcash20 +
+          handcash10 +
+          handcashCoins;
+        document.querySelector(".Tot_Handcash").innerHTML = `₹${totHandCash}`;
+      }
+
+      let finalTot = 0;
+      function final() {
+        finalTot = expected - actualPrice;
+        document.querySelector(".Finalvalue").innerHTML = `₹${finalTot}`;
+        console.log(finalTot);
+      }
+      /*
+      let oilValue = 0;
+      let expOilRate = 0;
+      function oilPriceExp() {
+        let oilExp = document.querySelector(".oil");
+        oilValueExp = Number(oilExp.value);
+        let oilRateExp = oilValueExp * 0.3;
+        document.querySelector(".oil_Price").innerHTML = `₹${oilRateExp}`;
+        expOilRate = expected + oilRateExp;
+        document.querySelector(".expected_price").innerHTML = `₹${expOilRate}`;
+      }
+        */
+      function oilPriceAct() {
+        let oilAct = document.querySelector(".oil_actual");
+        oilValueAct = Number(oilAct.value);
+        /*
+        let oilRateAct = oilValueAct * 0.3;*/
+        let oilRateAct = oilValueAct;
+        document.querySelector(".oilPriceact").innerHTML = `₹${oilRateAct}`;
+        actOilRate = finalTot + oilRateAct;
+        document.querySelector(".Finalvalue").innerHTML = `₹${actOilRate}`;
+      }
+    </script>
+  </body>
+</html>
