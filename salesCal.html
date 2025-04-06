@@ -330,7 +330,7 @@
 
         const worksheet = XLSX.utils.aoa_to_sheet(data);
         XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-        XLSX.writeFile(workbook, "Fuel_Report.xlsx");
+        XLSX.writeFile(workbook, "Sales_Report.xlsx");
 
         //new code for reset excel sheet
         if (localStorage.getItem("excelData")) {
