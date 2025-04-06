@@ -4,52 +4,55 @@
     <title>example</title>
   </head>
   <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="project.css" />
    <!-- <h1>DEVIKA AGENCY</h1>-->
-    <div class="head">
-      <div>
-        <label>Name:</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">Date:</label>
-        <input type="date" />
-      </div>
-      <div>
-        <label for="">In time:</label>
-        <input type="time" />
-      </div>
-      <div>
-        <label for="">Out time:</label>
-        <input type="time" />
-      </div>
+   <div class="head">
+    <div>
+      <label>Name:</label>
+      <input class="name" type="text" />
     </div>
+    <div>
+      <label for="">Date:</label>
+      <input class="date" type="date" />
+    </div>
+    <div>
+      <label for="">In time:</label>
+      <input class="intime" type="time" />
+    </div>
+    <div>
+      <label for="">Out time:</label>
+      <input class="outtime" type="time" />
+    </div>
+  </div>
+
     <div class="input-readings">
     <div class="petrol">
       <p class="topic_ms">MS</p>
       <div class="ms-details">
         <div class="st-reading-div">
           <span class="st-reading">Starting Reading.</span>
-          <input class="start_ms" type="number" />
+          <input class="start_ms" type="number" onchange="calMS(); totAmt(); final();"/>
         </div>
         <div class="cl-reading-div">
           <span class="cl-reading">Closing Reading  .</span>
-          <input class="end_ms" type="number" />
+          <input class="end_ms" type="number" onchange="calMS(); totAmt(); final();"/>
         </div>
         <div class="test-div">
           <span class="test">Testing .</span>
-          <input class="testing_ms" type="number" />
+          <input class="testing_ms" type="number" onchange="calMS(); totAmt(); final();"/>
         </div>
         <div class="liter-div">
           <span class="liter">Liters .</span>
-          <span class="liters_ms"></span>
+          <span class="liters_ms">0</span>
         </div>
         <div class="amt-div">
           <span class="amt">Amount .</span>
-          <span class="expected_ms"></span>
+          <span class="expected_ms">0</span>
         </div>
         
       </div>
+      <!--
       <div class="bt_ms_div">
         <button
           class="bt_ms"
@@ -61,21 +64,23 @@
           Calculate
         </button>
       </div>
+      
+    -->
     </div>
     <div class="diesel">
       <p class="topic_hsd">HSD</p> 
       <div class="hsd-details">
       <div class="st-reading-div">
         <span class=>Starting Reading.</span>
-        <input class="start_hsd" type="number" />
+        <input class="start_hsd" type="number" onchange="calHSD(); totAmt(); final();" />
       </div>
       <div class="cl-reading-div">
         <span>Closing Reading .</span>
-        <input class="end_hsd" type="number" />
+        <input class="end_hsd" type="number" onchange="calHSD(); totAmt(); final();"/>
       </div>
       <div class="test-div" >
         <span >Testing .</span>
-        <input class="testing_hsd" type="number" />
+        <input class="testing_hsd" type="number" onchange="calHSD(); totAmt(); final();" />
       </div>
       <div class="liter-div" >
         <span>Liters .</span>
@@ -86,6 +91,7 @@
         <span class="expected_hsd"></span>
       </div>
     </div>
+    <!--
     <div class="bt_hsd_div">
       <button
       class="bt_hsd"
@@ -97,29 +103,13 @@
         Calculate
       </button>
     </div>
+    -->
     </div>
   </div>
-    <!--
-      <div>
-        <p>Oil:</p>
-        <input class="oil" type="text" placeholder="In 'ml'" />
-        <button
-          onclick="
-                oilPriceExp();
-                "
-        >
-          Enter
-        </button>
-        <p>Oil Price:</p>
-        <p class="oil_Price"></p>
-        <p>Expected Price + Oil:</p>
-                <p class="oilExpPrice"></p>
-      </div>
--->
       <div class="tot-amt-div">
         <button class="tot-amt-bt">
-      <span class="tot-amt">Total Amount :</span>
-      <span class="expected_price"></span>
+      <span class="tot-amt">Expected Price:</span>
+      <span class="expected_price">0</span>
     </button>
       </div>
     
@@ -127,49 +117,50 @@
       <h2 class="handcash-topic">CASH</h2>
       <div class="full-hc-div">
       <div class="previous-hc">
-      <input class="handcash1" type="number" placeholder="1" />
-      <input class="handcash2" type="number" placeholder="2" />
-      <input class="handcash3" type="number" placeholder="3" />
-      <input class="handcash4" type="number" placeholder="4" />
+      <input class="handcash1" type="number" placeholder="1" onchange="handCash(); totActualCash(); final();"/>
+      <input class="handcash2" type="number" placeholder="2" onchange="handCash(); totActualCash(); final();"/>
+      <input class="handcash3" type="number" placeholder="3" onchange="handCash(); totActualCash(); final();"/>
+      <input class="handcash4" type="number" placeholder="4" onchange="handCash(); totActualCash(); final();"/>
     </div>
     <div class="present-hc">
       <div>
       <span>500₹ X</span>
-      <input class="handcash_500" type="number" />
-      <span class="hc_500"></span>
+      <input class="handcash_500" type="number" onchange="handCash(); totActualCash(); final();"/>
+      <span class="hc_500">=₹0</span>
     </div>
     <div>
       <span>200₹ X</span>
-      <input class="handcash_200" type="number" />
-      <span class="hc_200"></span>
+      <input class="handcash_200" type="number" onchange="handCash(); totActualCash(); final();"/>
+      <span class="hc_200">=₹0</span>
     </div>
     <div>
       <span>100₹ X</span>
-      <input class="handcash_100" type="number" />
-      <span class="hc_100"></span>
+      <input class="handcash_100" type="number" onchange="handCash(); totActualCash(); final();"/>
+      <span class="hc_100">=₹0</span>
     </div>
     <div>
       <span>50₹ X</span>
-      <input class="handcash_50" type="number" />
-      <span class="hc_50"></span>
+      <input class="handcash_50" type="number" onchange="handCash(); totActualCash(); final();"/>
+      <span class="hc_50">=₹0</span>
     </div>
     <div>
       <span>20₹ X</span>
-      <input class="handcash_20" type="number" />
-      <span class="hc_20"></span>
+      <input class="handcash_20" type="number" onchange="handCash(); totActualCash(); final();"/>
+      <span class="hc_20">=₹0</span>
     </div>
     <div>
       <span>10₹ X</span>
-      <input class="handcash_10" type="number" />
-      <span class="hc_10"></span>
+      <input class="handcash_10" type="number" onchange="handCash(); totActualCash(); final();" />
+      <span class="hc_10">=₹0</span>
     </div>
     <div>
       <span>Coins:</span>
-      <input class="handcash_coins" type="number" />
-      <span class="hc_coins"></span>
+      <input class="handcash_coins" type="number" onchange="handCash(); totActualCash(); final();"/>
+      <span class="hc_coins">=₹0</span>
     </div>
     </div>
   </div>
+  <!--
   <div class="hc-bt-div">
       <button class="hc-bt"
         onclick="
@@ -179,17 +170,19 @@
         Calculate
       </button>
     </div>
+    -->
     </div>
     <div class="hc-pp-amt">
     <div class="tot-hc-amt">
-      <span>Total Cash :</span>
-      <span class="Tot_Handcash"></span>
+      <span>Cash:</span>
+      <span class="Tot_Handcash">0</span>
     </div>
     <div class="pp-amt">
       <span>Phonepe: </span>
-      <input class="phonepe" type="number" />
+      <input class="phonepe" type="number" onchange="totActualCash(); final();" />
     </div>
   </div>
+  <!--
   <div class="hc-full-bt-div">
   <button class="full-hc-bt"
   onclick="
@@ -200,160 +193,164 @@
   Calculate
 </button>
 </div>
+-->
     <div class="tot-hc-div">
       <button class="tot-hc-bt">
-      <span>Total (HC+PP):</span>
-      <span class="totactualprice"></span>
+      <span>Total (C+PP):</span>
+      <span class="totactualprice">0</span>
       </button>
       </div>
-      <div class="oil-full">
-      <div class="oil-div">
-        <div class="oil-rate">
-      <span>Oil:</span>
-      <input class="oil_actual" type="number" placeholder="₹" />
-      <button
-        onclick="
-            oilPriceAct();
-            "
-      >
-        Enter
-      </button>
-    </div>
-      <span>Oil Price :</span>
-      <span class="oilPriceact"></span>
-    </div>
-  </div>
   <div class="full-tot">
     <span class="full-tot-bt">
-      <span>Total:</span>
-      <span class="Finalvalue"></span>
+      <span>Final Balance:</span>
+      <span class="Finalvalue">0</span>
     </span>
   </div>
+  
+  <div class="oil-full">
+    <div class="oil-div">
+      <div class="oil-rate">
+    <span>Oil:</span>
+    <input class="oil_actual" type="number" placeholder="₹" onchange="oilPriceAct();"/>    
+  </div>
+        <span class="oilPriceact">0</span>
+    </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button class="download" onclick="exportToExcel()">Download Excel</button>
+    </div>
+
+    <button class="reset" onclick="resetExcelSheet()">Reset Excel</button>
+
     <script>
-      let hsdPrice = 0;
-      let msPrice = 0;
+      let hsdPrice = 0,msPrice = 0,expected = 0, totHandCash = 0,actualPrice = 0,finalTot=0;
+     
 
       function calMS() {
-        const startMS = document.querySelector(".start_ms");
-        let startms = Number(startMS.value);
-        const endMS = document.querySelector(".end_ms");
-        let endms = Number(endMS.value);
-        const add = endms - startms;
-        const mstest = document.querySelector(".testing_ms");
-        let msTestValue = Number(mstest.value);
-        const totMSliter = add - msTestValue;
+        const startms = document.querySelector(".start_ms").value;
+        const endms = document.querySelector(".end_ms").value;
+        const msTestValue = document.querySelector(".testing_ms").value;
+        const totMSliter = endms - startms- msTestValue;
         document.querySelector(".liters_ms").innerHTML = `${totMSliter}`;
-
-        msPrice = (totMSliter * 96.25);
+        msPrice = totMSliter * 96.25;
         document.querySelector(".expected_ms").innerHTML = `₹${msPrice.toFixed(2)}`;
       }
 
-      let expected = 0;
       function calHSD() {
-        const startHSD = document.querySelector(".start_hsd");
-        let starthsd = Number(startHSD.value);
-        const endHSD = document.querySelector(".end_hsd");
-        let endhsd = Number(endHSD.value);
-        const add2 = endhsd - starthsd;
-        const hsdtest = document.querySelector(".testing_hsd");
-        let hsdTestValue = Number(hsdtest.value);
-        const totHSDliter = add2 - hsdTestValue;
+        const starthsd = document.querySelector(".start_hsd").value;
+        const endhsd = document.querySelector(".end_hsd").value;
+        const hsdTestValue = document.querySelector(".testing_hsd").value;
+        const totHSDliter = endhsd - starthsd- hsdTestValue;
         document.querySelector(".liters_hsd").innerHTML = `${totHSDliter}`;
-
-        hsdPrice = (totHSDliter * 86.47);
+        hsdPrice = totHSDliter * 86.47;
         document.querySelector(".expected_hsd").innerHTML = `₹${hsdPrice.toFixed(2)}`;
       }
       function totAmt(){
         expected = hsdPrice + msPrice;
-        document.querySelector(".expected_price").innerHTML = `₹${expected}`;
+        document.querySelector(".expected_price").innerHTML = `₹${expected.toFixed(2)}`;
       }
 
-      let totHandCash = 0;
-      let actualPrice = 0;
       function totActualCash() {
-        const phonePe = document.querySelector(".phonepe");
-        let phonepe = Number(phonePe.value);
+        const phonepe = document.querySelector(".phonepe").value;
         actualPrice = totHandCash + phonepe;
         document.querySelector(".totactualprice").innerHTML = `₹${actualPrice}`;
       }
 
       function handCash() {
-        const handCash1 = document.querySelector(".handcash1");
-        let handcash1 = Number(handCash1.value);
-        console.log(handcash1);
-        const handCash2 = document.querySelector(".handcash2");
-        let handcash2 = Number(handCash2.value);
-        console.log(handcash2);
-        const handCash3 = document.querySelector(".handcash3");
-        let handcash3 = Number(handCash3.value);
-        console.log(handcash3);
-        const handCash4 = document.querySelector(".handcash4");
-        let handcash4 = Number(handCash4.value);
-        console.log(handcash4);
-        const handCash500 = document.querySelector(".handcash_500");
-        let handcash500 = Number(handCash500.value) * 500;
-        document.querySelector(".hc_500").innerHTML = `=₹${handcash500}`;
-        const handCash200 = document.querySelector(".handcash_200");
-        let handcash200 = Number(handCash200.value) * 200;
-        document.querySelector(".hc_200").innerHTML = `=₹${handcash200}`;
-        const handCash100 = document.querySelector(".handcash_100");
-        let handcash100 = Number(handCash100.value) * 100;
-        document.querySelector(".hc_100").innerHTML = `=₹${handcash100}`;
-        const handCash50 = document.querySelector(".handcash_50");
-        let handcash50 = Number(handCash50.value) * 50;
-        document.querySelector(".hc_50").innerHTML = `=₹${handcash50}`;
-        const handCash20 = document.querySelector(".handcash_20");
-        let handcash20 = Number(handCash20.value) * 20;
-        document.querySelector(".hc_20").innerHTML = `=₹${handcash20}`;
-        const handCash10 = document.querySelector(".handcash_10");
-        let handcash10 = Number(handCash10.value) * 10;
-        document.querySelector(".hc_10").innerHTML = `=₹${handcash10}`;
-        const handCashCoins = document.querySelector(".handcash_coins");
-        let handcashCoins = Number(handCashCoins.value);
-        document.querySelector(".hc_coins").innerHTML = `=₹${handcashCoins}`;
-        totHandCash =
-          handcash1 +
-          handcash2 +
-          handcash3 +
-          handcash4 +
-          handcash500 +
-          handcash200 +
-          handcash100 +
-          handcash50 +
-          handcash20 +
-          handcash10 +
-          handcashCoins;
+        const handcashValues = [".handcash1", ".handcash2", ".handcash3", ".handcash4"].map(cls => Number(document.querySelector(cls).value));
+        const denoms = [500, 200, 100, 50, 20, 10];
+        const denomClasses = [".handcash_500", ".handcash_200", ".handcash_100", ".handcash_50", ".handcash_20", ".handcash_10"];
+
+        let denomTotal = 0;
+        denoms.forEach((val, i) => {
+          const qty = Number(document.querySelector(denomClasses[i]).value);
+          const amt = qty * val;
+          document.querySelector(`.hc_${val}`).innerHTML = `=₹${amt}`;
+          denomTotal += amt;
+        });
+
+        const coins = Number(document.querySelector(".handcash_coins").value);
+        document.querySelector(".hc_coins").innerHTML = `=₹${coins}`;
+
+        totHandCash = handcashValues.reduce((a, b) => a + b, 0) + denomTotal + coins;
         document.querySelector(".Tot_Handcash").innerHTML = `₹${totHandCash}`;
       }
 
-      let finalTot = 0;
       function final() {
         finalTot = expected - actualPrice;
-        document.querySelector(".Finalvalue").innerHTML = `₹${finalTot}`;
-        console.log(finalTot);
+        document.querySelector(".Finalvalue").innerHTML = `₹${finalTot.toFixed(2)}`;
       }
-      /*
-      let oilValue = 0;
-      let expOilRate = 0;
-      function oilPriceExp() {
-        let oilExp = document.querySelector(".oil");
-        oilValueExp = Number(oilExp.value);
-        let oilRateExp = oilValueExp * 0.3;
-        document.querySelector(".oil_Price").innerHTML = `₹${oilRateExp}`;
-        expOilRate = expected + oilRateExp;
-        document.querySelector(".expected_price").innerHTML = `₹${expOilRate}`;
-      }
-        */
       function oilPriceAct() {
-        let oilAct = document.querySelector(".oil_actual");
-        oilValueAct = Number(oilAct.value);
-        /*
-        let oilRateAct = oilValueAct * 0.3;*/
-        let oilRateAct = oilValueAct;
-        document.querySelector(".oilPriceact").innerHTML = `₹${oilRateAct}`;
-        actOilRate = finalTot + oilRateAct;
-        document.querySelector(".Finalvalue").innerHTML = `₹${actOilRate}`;
+        const oilValueAct = Number(document.querySelector(".oil_actual").value);
+        const actOilRate = finalTot + oilValueAct;
+        document.querySelector(".oilPriceact").innerHTML = `₹${oilValueAct}`;
+        document.querySelector(".Finalvalue").innerHTML = `₹${actOilRate.toFixed(2)}`;
       }
+      function exportToExcel() {
+        const workbook = XLSX.utils.book_new();
+        const data = [[
+          "Name", "Date", "In Time", "Out Time", "Start MS", "End MS", "Testing MS", "Liters MS", "Expected MS",
+          "Start HSD", "End HSD", "Testing HSD", "Liters HSD", "Expected HSD", "Expected Price",
+          "Hand Cash", "PhonePe", "Total Actual", "Final Balance", "Oil"
+        ]];
+
+        const row = [
+          document.querySelector(".name").value,
+          document.querySelector(".date").value,
+          document.querySelector(".intime").value,
+          document.querySelector(".outtime").value,
+          document.querySelector(".start_ms").value,
+          document.querySelector(".end_ms").value,
+          document.querySelector(".testing_ms").value,
+          document.querySelector(".liters_ms").innerText,
+          document.querySelector(".expected_ms").innerText,
+          document.querySelector(".start_hsd").value,
+          document.querySelector(".end_hsd").value,
+          document.querySelector(".testing_hsd").value,
+          document.querySelector(".liters_hsd").innerText,
+          document.querySelector(".expected_hsd").innerText,
+          document.querySelector(".expected_price").innerText,
+          document.querySelector(".Tot_Handcash").innerText,
+          document.querySelector(".phonepe").value,
+          document.querySelector(".totactualprice").innerText,
+          document.querySelector(".Finalvalue").innerText,
+          document.querySelector(".oil_actual").value
+        ];
+
+        if (localStorage.getItem("excelData")) {
+          const existing = JSON.parse(localStorage.getItem("excelData"));
+          existing.push(row);
+          localStorage.setItem("excelData", JSON.stringify(existing));
+          data.push(...existing);
+        } else {
+          localStorage.setItem("excelData", JSON.stringify([row]));
+          data.push(row);
+        }
+
+        const worksheet = XLSX.utils.aoa_to_sheet(data);
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+        XLSX.writeFile(workbook, "Fuel_Report.xlsx");
+
+        //new code for reset excel sheet
+        if (localStorage.getItem("excelData")) {
+        const existing = JSON.parse(localStorage.getItem("excelData"));
+        existing.push(row);
+        localStorage.setItem("excelData", JSON.stringify(existing));
+        data.push(...existing);
+        } else {
+        localStorage.setItem("excelData", JSON.stringify([row]));
+        data.push(row);
+        }
+
+      }
+      function resetExcelSheet() {
+  localStorage.removeItem("excelData");
+  localStorage.setItem("resetDone", "true"); // Flag to prevent old data reuse
+  alert("Excel data reset successfully!");
+}
+
+
     </script>
   </body>
 </html>
