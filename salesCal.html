@@ -245,7 +245,7 @@
         document.querySelector(".liters_ms").innerHTML = `${totMSliter}`;
 
         msPrice = (totMSliter * 96.25);
-        document.querySelector(".expected_ms").innerHTML = `₹${msPrice}`;
+        document.querySelector(".expected_ms").innerHTML = `₹${msPrice.toFixed(2)}`;
       }
 
       let expected = 0;
@@ -261,7 +261,7 @@
         document.querySelector(".liters_hsd").innerHTML = `${totHSDliter}`;
 
         hsdPrice = (totHSDliter * 86.47);
-        document.querySelector(".expected_hsd").innerHTML = `₹${hsdPrice}`;
+        document.querySelector(".expected_hsd").innerHTML = `₹${hsdPrice.toFixed(2)}`;
       }
       function totAmt(){
         expected = hsdPrice + msPrice;
