@@ -208,7 +208,7 @@ button:hover {
   border-color: rgba(134, 133, 133, 0.753);
   padding: 12px 0px 12px 0px ;
   border-radius: 72px;
-  margin: -20px 400px 30px 440px;
+  margin: 20px 400px 30px 440px;
 
 }
 .tot-hc-div{
@@ -234,4 +234,21 @@ button:hover {
   color:darkred;
   background-color:rgb(255, 255, 255);
   margin-top: -25px;
+}
+.download,.reset{
+  font-size: 15px;
+  padding: 15px 22px 15px 22px ;
+  margin-top: 8px;
+  font-weight: bolder;
+}
+.download{
+  border: solid;
+  background-color: green;
+  color: white;
+}
+
+.reset{
+  order: solid;
+  background-color: red;
+  color: white;
 }
