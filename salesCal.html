@@ -217,12 +217,12 @@
     </div>
     </div>
 
-    <div style="margin-top: 20px;">
+   <!-- <div style="margin-top: 20px;">
         <button class="download" onclick="exportToExcel()">Download Excel</button>
     </div>
 
     <button class="reset" onclick="resetExcelSheet()">Reset Excel</button>
-
+-->
     <script>
       let hsdPrice = 0,msPrice = 0,expected = 0, totHandCash = 0,actualPrice = 0,finalTot=0;
      
@@ -287,7 +287,7 @@
         document.querySelector(".oilPriceact").innerHTML = `₹${oilValueAct}`;
         document.querySelector(".Finalvalue").innerHTML = `₹${actOilRate.toFixed(2)}`;
       }
-      function exportToExcel() {
+   /*   function exportToExcel() {
         const workbook = XLSX.utils.book_new();
         const data = [[
           "Name", "Date", "In Time", "Out Time", "Start MS", "End MS", "Testing MS", "Liters MS", "Expected MS",
@@ -348,7 +348,7 @@
   localStorage.removeItem("excelData");
   localStorage.setItem("resetDone", "true"); // Flag to prevent old data reuse
   alert("Excel data reset successfully!");
-}
+}*/
 
 
     </script>
