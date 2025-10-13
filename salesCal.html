@@ -253,7 +253,7 @@
 
       function totActualCash() {
         const phonepe = document.querySelector(".phonepe").value;
-        actualPrice = totHandCash + phonepe;
+        actualPrice = totHandCash + Number(phonepe);
         document.querySelector(".totactualprice").innerHTML = `₹${actualPrice}`;
       }
 
